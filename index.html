@@ -1,9 +1,22 @@
-<html>
+<html lang="en">
     <head>
-        <title>2Bored2Wait</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Brownman Queue Proxy</title>
         <link rel="stylesheet" href="index.css">
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     </head>
     <body>
+        <div class="end-sky" id="queue">
+            <div class="end-sky-inner">
+                <div class="chat-box">
+                    <ul class="chat">
+                        <li id="chat-box"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
         <div class="content">
             <h1>Place in queue: <div class="place">None</div> </h1>
             <h1>ETA: <div class="ETA">None</div> </h1>
@@ -12,6 +25,11 @@
             <input type="checkbox" class="restartQueue" onchange="toggleRestartQueue()"> Restart the queue if you're not connected at the end of it?
         </div>
         <script>
+            function fade() {
+                setTimeout(() => {
+                    $('#chat-box').fadeOut((10000 / 20) * 3);
+                }, (10000 / 20) * 16);
+            }
             setInterval(() => { //each second, update the info.
                 const xhr = new XMLHttpRequest();
                 xhr.open("GET", "/update", true);
@@ -19,6 +37,9 @@
                     if (this.readyState == 4 && this.status == 200) {
                         const response = JSON.parse(this.responseText);
                         document.getElementsByClassName("place")[0].innerHTML = response.place;
+                        fade();
+                        $('#chat-box').fadeIn(0);
+                        $('#chat-box').text(`Position in queue: ` + response.place);
                         document.getElementsByClassName("ETA")[0].innerHTML = response.ETA;
                         document.getElementsByClassName("restartQueue")[0].checked = response.restartQueue
                         const queueButton = document.getElementById('queueButton');
@@ -42,6 +63,8 @@
                 const xhr = new XMLHttpRequest();
                 xhr.open("GET", "/start", true);
                 xhr.setRequestHeader('XPassword', document.getElementsByClassName('password')[0].value)
+                $('#chat-box').text('2b2t is full');
+                fade();
                 xhr.send();
                 const queueButton = document.getElementById('queueButton');
                 queueButton.innerHTML = "Stop queuing";
