@@ -134,12 +134,72 @@ function startQueuing() {
     		setTimeout(function () {
         		if (proxyClient == null) {
             			newProxyClient.write('chat', {message: "/help"});
-            			position.x += 0.26;
-            			refreshposition();
+            			var random = Math.floor(Math.random() * 3);
+				if (random == 0) {
+					position.x += 0.21;
+    					refreshposition();
+    					setTimeout(function(){ 
+    						position.x += 0.21;
+        					setTimeout(function(){ 
+    							position.x += 0.21;
+            						setTimeout(function(){ 
+    								position.x += 0.21;
+                						setTimeout(function(){ 
+    									position.x += 0.21;
+    								}, 50);
+    							}, 50);
+    						}, 50);
+    					}, 50);
+				} else if (random == 1) {
+					position.x -= 0.21;
+    					refreshposition();
+    					setTimeout(function(){ 
+    						position.x -= 0.21;
+        					setTimeout(function(){ 
+    							position.x -= 0.21;
+            						setTimeout(function(){ 
+    								position.x -= 0.21;
+                						setTimeout(function(){ 
+    									position.x -= 0.21;
+    								}, 50);
+    							}, 50);
+    						}, 50);
+    					}, 50);
+				} if (random == 2) {
+					position.z += 0.21;
+    					refreshposition();
+    					setTimeout(function(){ 
+    						position.z += 0.21;
+        					setTimeout(function(){ 
+    							position.z += 0.21;
+            						setTimeout(function(){ 
+    								position.z += 0.21;
+                						setTimeout(function(){ 
+    									position.z += 0.21;
+    								}, 50);
+    							}, 50);
+    						}, 50);
+    					}, 50);
+				} if (random == 0) {
+					position.z -= 0.21;
+    					refreshposition();
+    					setTimeout(function(){ 
+    						position.z -= 0.21;
+        					setTimeout(function(){ 
+    							position.z -= 0.21;
+            						setTimeout(function(){ 
+    								position.z -= 0.21;
+                						setTimeout(function(){ 
+    									position.z -= 0.21;
+    								}, 50);
+    							}, 50);
+    						}, 50);
+    					}, 50);
+				}
         		} else {
             			antiAfk();
         		}
-    		}, 45000);
+    		}, 30000);
 	}
 
 	function refreshposition() {
