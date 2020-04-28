@@ -1,40 +1,98 @@
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    background-color: rgb(16, 16, 26);
-}
-
-h1, .content {
-    margin: 0;
-    color: rgb(228, 228, 228);
-    font-family: sans-serif;
-}
-
-button {
-    width: 128px;
-    height: 32px;
-    background-color: transparent;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    font-family: sans-serif;
-    border-radius: 5px;
-    color: #e4e4e4;
-    transition-duration: 0.3s;
-}
-
-button.start {
-    border: 3px solid #25c525;
-}
-
-button.stop {
-    border: 2px solid #f32727;
-}
-
-.place, .ETA{
-    display: inline-block;
-}
+      @import 'https://necolas.github.io/normalize.css/8.0.1/normalize.css';
+      @font-face {
+      	font-family: "Minecraftia";
+      	src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/93930/Minecraftia2.ttf");
+      }
+      body {
+      	display: flex;
+      	justify-content: center;
+      	align-items: center;
+      	width: 100vw;
+      	height: 100vh;
+      	margin: 0;
+      	background-color: rgb(16, 16, 26);
+      }
+      h1,
+      .content {
+      	margin: 0;
+      	color: rgb(228, 228, 228);
+      	font-family: sans-serif;
+      }
+      button {
+      	width: 128px;
+      	height: 32px;
+      	background-color: transparent;
+      	border: none;
+      	outline: none;
+      	cursor: pointer;
+      	font-family: sans-serif;
+      	border-radius: 5px;
+      	color: #e4e4e4;
+      	transition-duration: 0.3s;
+      }
+      button.start {
+      	border: 3px solid #25c525;
+      }
+      button.stop {
+      	border: 2px solid #f32727;
+      }
+      .place,
+      .ETA {
+      	display: inline-block;
+      }
+      .end-sky {
+      	width: 100vw;
+      	height: 100vh;
+      }
+      .end-sky-inner {
+      	width: 100vw;
+      	height: 100vh;
+      	background: radial-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.95));
+      }
+      .chat-box {
+      	width: 100vw;
+      	height: 100vh;
+      	display: flex;
+      	justify-content: left;
+      	align-items: flex-end;
+      }
+      .chat {
+      	color: #ffaa00;
+      	background-color: rgba(0, 0, 0, 0.8);
+      	font-size: 13px;
+      	font-family: 'Minecraftia';
+      	text-shadow: 1pt 1pt #2a2a00;
+      	width: 640px;
+      	max-height: 360px;
+      	padding-left: 5px;
+      	margin-bottom: 72px;
+      	align-items: flex-end;
+      	vertical-align: bottom;
+      	font-smooth: never;
+      	-moz-osx-font-smoothing: none;
+      	-webkit-font-smoothing: none;
+      }
+      .chat li {
+      	height: 18px;
+      	overflow: hidden;
+      }
+      .chat b {
+      	letter-spacing: 1.5px;
+      	text-shadow: 1pt 0pt #ffaa00, 3pt 2pt #2a2a00;
+      }
+      .error-header {
+      	font-size: 13px;
+      	font-family: 'Minecraftia';
+      	color: #aaaaaa;
+      	width: 100%;
+      	text-align: center;
+      	padding: 16px 0;
+      }
+      .error-message {
+      	font-size: 13px;
+      	font-family: 'Minecraftia';
+      	color: #ffffff;
+      	width: 100%;
+      	text-align: center;
+      	padding-bottom: 16px;
+      }
