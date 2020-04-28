@@ -1,4 +1,3 @@
-
 // imports
 const mc = require('minecraft-protocol'); // to handle minecraft login session
 const webserver = require('./webserver.js'); // to serve the webserver
@@ -137,7 +136,7 @@ function startQueuing() {
             			newProxyClient.write('chat', {message: "/help"});
             			position.x += 0.26;
             			refreshposition();
-        		} else () {
+        		} else {
             			antiAfk();
         		}
     		}, 45000);
