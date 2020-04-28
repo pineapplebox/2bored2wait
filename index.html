@@ -26,6 +26,7 @@
             <input type="checkbox" class="restartQueue" onchange="toggleRestartQueue()"> Restart the queue if you're not connected at the end of it?
         </div>
         <script>
+            var fadeUpdate = 2;
             function fade() {
                 setTimeout(() => {
                     $('#chat-box').fadeOut((10000 / 20) * 3);
@@ -38,9 +39,14 @@
                     if (this.readyState == 4 && this.status == 200) {
                         const response = JSON.parse(this.responseText);
                         document.getElementsByClassName("place")[0].innerHTML = response.place;
-                        fade();
-                        $('#chat-box').fadeIn(0);
-                        $('#chat-box').text(`Position in queue: ` + response.place);
+                        if (fadeUpdate == 2) {
+                            fade();
+                            $('#chat-box').fadeIn(0);
+                            $('#chat-box').text(`Position in queue: ` + response.place);
+                            fadeUpdate = 1;
+                        } else if (fadeUpdate == 1) {
+                            fadeUpdate = 2;
+                        }
                         document.getElementsByClassName("ETA")[0].innerHTML = response.ETA;
                         document.getElementsByClassName("restartQueue")[0].checked = response.restartQueue
                         const queueButton = document.getElementById('queueButton');
