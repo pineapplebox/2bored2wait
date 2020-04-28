@@ -130,6 +130,30 @@ function startQueuing() {
 		});
 
 		proxyClient = newProxyClient;
+		
+	function antiAfk () {
+    		setTimeout(function () {
+        		if (proxyClient == null) {
+            			newProxyClient.write('chat', {message: "/help"});
+            			position.x += 0.26;
+            			refreshposition();
+        		} else () {
+            			antiAfk();
+        		}
+    		}, 45000);
+	}
+
+	function refreshposition() {
+    		client.write('position', {
+        		x: position.x,
+        		stance: position.y - 1.62,
+        		y: position.y,
+        		z: position.z,
+        		onGround: false
+    		});
+	}
+
+	antiAfk();
 	});
 }
 
