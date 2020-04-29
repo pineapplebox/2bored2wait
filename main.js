@@ -123,6 +123,7 @@ function startQueuing() {
 			pitch: 0,
 			flags: 0x00
 		});
+		antiAfk();
 
 		newProxyClient.on('packet', (data, meta) => { // redirect everything we do to 2b2t
 			filterPacketAndSend(data, meta, client);
@@ -211,8 +212,6 @@ function startQueuing() {
         		onGround: false
     		});
 	}
-
-	antiAfk();
 	});
 }
 
